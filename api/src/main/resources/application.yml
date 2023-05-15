@@ -15,7 +15,19 @@ spring:
           uri: lb://medicine-service
           predicates:
             - Path=/medicine/**
+
         - id: customer-service
           uri: lb://customer-service
           predicates:
             - Path=/customer/**
+
+        - id: procure-service
+          uri: lb://procure-service
+          predicates:
+            - Path=/procure/**
+
+        - id: sale-service
+          uri: lb://sale-service
+          predicates:
+            - Path=/sale/**
+
