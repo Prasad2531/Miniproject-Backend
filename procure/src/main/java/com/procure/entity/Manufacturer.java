@@ -1,6 +1,8 @@
 package com.procure.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.Range;
 
 import java.sql.Date;
 import java.util.List;
@@ -25,15 +27,24 @@ public class Manufacturer {
         this.totalBill = totalBill;
     }
 
-    @Column
+    @NotBlank(message = "Manufacture Name is Mandatory")
+    @Size(min = 3, message = "Manufacture Name should have at least 3 characters")
     String manufacturerName;
-    @Column
+
+    @NotBlank(message = "Medicine Name is Mandatory")
+    @Size(min = 3, message = "Medicine Name should have at least 3 characters")
     String medicineName;
-    @Column
+
+    @NotNull(message = "Delivery Date is Mandatory")
+    @Future(message = "Delivery Date must be in the future and date format")
     Date delivaryDate;
-    @Column
+
+    @Range(min = 1, message= "Quantity may not be empty or null")
+    @Positive(message = "Value must be greater than 0")
     int quantity;
 
+    @Range(min = 1, message= "Total Bill may not be empty or null")
+    @Positive(message = "Value must be greater than 0")
     int totalBill;
 
     public int getId() {

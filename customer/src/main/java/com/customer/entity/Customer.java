@@ -43,8 +43,8 @@ public class Customer {
     @Email(message = "Email must have in their proper format")
     String email;
 
-//    @NotNull(message = "Medicine details is Mandatory")
-//    @Size(min = 1, max = 12, message = "List must contain between 1 and 12 elements")
+    @NotNull(message = "Medicine details is Mandatory")
+    @Size(min = 1, max = 12, message = "List must contain between 1 and 12 elements")
     @OneToMany(targetEntity = Medicine.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_fk", referencedColumnName = "customerId")
     List<Medicine> medicine;

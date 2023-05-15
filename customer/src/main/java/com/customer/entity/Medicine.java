@@ -50,7 +50,8 @@ public class Medicine {
     @Positive(message = "Value must be greater than 0")
     int currentStock;
 
-
+    @Range(min = 1, message= "Customer Id may not be empty or null")
+    @Positive(message = "Value must be greater than 0")
     int customerId;
     public int getCustomerId() {
         return customerId;
