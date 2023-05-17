@@ -3,6 +3,7 @@ package com.medicine.service;
 import com.medicine.Entity.Medicine;
 import com.medicine.repository.MedicineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@ComponentScan
 public class MedicineServiceImpl implements MedicineService{
     @Autowired
     private MedicineRepository medicineRepo;

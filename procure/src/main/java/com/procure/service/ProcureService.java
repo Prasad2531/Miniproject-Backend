@@ -7,7 +7,7 @@ import java.util.List;
 
 
 public interface ProcureService {
-    public String addPurchaseOrder(PurchaseOrder purchaseOrder);
+    public PurchaseOrder addPurchaseOrder(PurchaseOrder purchaseOrder);
     public String deletePurchaseOrder(int id);
     public String updatePurchaseOrder(PurchaseOrder purchaseOrder);
     public List<PurchaseOrder> getPurchaseOrder();

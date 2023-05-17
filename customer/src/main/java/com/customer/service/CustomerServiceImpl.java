@@ -15,9 +15,9 @@ public class CustomerServiceImpl implements CustomerService{
     @Autowired
     CustomerRepository customerRepo;
     @Override
-    public String addCustomer(Customer customer){
+    public Customer addCustomer(Customer customer){
         customerRepo.save(customer);
-        return "CustomerMedicine added";
+        return customer;
     }
     public String deleteCustomer(int id){
         Customer customer=customerRepo.getById(id);

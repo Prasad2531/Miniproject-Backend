@@ -5,9 +5,11 @@ import java.util.Optional;
 
 
 import com.medicine.Entity.Medicine;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
-
+@ComponentScan
+@Service
 public interface MedicineService {
     public String addMedicine(Medicine medicine);
     public String deleteMedicine(int id);

@@ -45,7 +45,7 @@ public class ProcureController {
      */
     @CrossOrigin("http://localhost:4200")
     @PostMapping(path="/insertPurchaseOrder")
-    public String insertPurchaseOrder(@Valid @RequestBody PurchaseOrder obj) {
+    public PurchaseOrder insertPurchaseOrder(@Valid @RequestBody PurchaseOrder obj) {
         System.out.println("Received data : " + obj);
         return procureService.addPurchaseOrder(obj);
 //		return "Record Inserted Successfully";

@@ -11,9 +11,9 @@ import java.util.List;
 public class ProcureServiceImpl implements ProcureService{
     @Autowired
     private ProcureRepository procureRepo;
-    public String addPurchaseOrder(PurchaseOrder purchaseOrder){
+    public PurchaseOrder addPurchaseOrder(PurchaseOrder purchaseOrder){
         procureRepo.save(purchaseOrder);
-        return "PurchaseOrder added";
+        return purchaseOrder;
     }
     public String deletePurchaseOrder(int id){
         PurchaseOrder purchaseOrder= procureRepo.getReferenceById(id);

@@ -11,9 +11,9 @@ import java.util.List;
 public class SaleServiceImpl implements SaleService{
     @Autowired
     private SaleRepository saleRepo;
-    public String addSales(Sale sales){
+    public Sale addSales(Sale sales){
         saleRepo.save(sales);
-        return "Sales added";
+        return sales;
     }
     public String deleteSales(int id){
         Sale sale=saleRepo.getById(id);

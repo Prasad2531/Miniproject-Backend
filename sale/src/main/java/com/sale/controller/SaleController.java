@@ -50,7 +50,7 @@ public class SaleController {
      */
     @CrossOrigin("http://localhost:4200")
     @PostMapping(path="/insertSales")
-    public String insertSales(@Valid @RequestBody Sale obj) {
+    public Sale insertSales(@Valid @RequestBody Sale obj) {
         System.out.println("Received data : " + obj);
         return saleService.addSales(obj);
 //		return "Record Inserted Successfully";

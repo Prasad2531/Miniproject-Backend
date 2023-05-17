@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CustomerService{
-    public String addCustomer(Customer customer);
+    public Customer addCustomer(Customer customer);
     public String deleteCustomer(int id);
     public String updateCustomer(Customer customer);
     public List<Customer> getCustomer();

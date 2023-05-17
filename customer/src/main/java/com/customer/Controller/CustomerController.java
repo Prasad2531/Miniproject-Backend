@@ -71,7 +71,7 @@ public class CustomerController {
      */
     @CrossOrigin("http://localhost:4200")
     @PostMapping("/insertCustomer")
-    public String insertCustomer(@Valid @RequestBody Customer obj) {
+    public Customer insertCustomer(@Valid @RequestBody Customer obj) {
         System.out.println("Received data : " + obj);
         return customerService.addCustomer(obj);
     }

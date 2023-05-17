@@ -5,7 +5,7 @@ import com.sale.entity.Sale;
 import java.util.List;
 
 public interface SaleService {
-    public String addSales(Sale sales);
+    public Sale addSales(Sale sales);
 
     public String deleteSales(int id);
 
