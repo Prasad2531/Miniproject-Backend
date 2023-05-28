@@ -1,7 +1,12 @@
 package com.sale.repository;
 
-import com.sale.entity.Sale;
+import com.sale.entity.Sales;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SaleRepository extends JpaRepository<Sale,Integer> {
+import java.sql.Date;
+import java.util.List;
+
+public interface SaleRepository extends JpaRepository<Sales,Integer> {
+
+    List<Sales> findByDate(Date date);
 }

@@ -1,11 +1,12 @@
 package com.sale.controller;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
-import com.sale.entity.Sale;
+import com.sale.entity.Sales;
 import com.sale.repository.SaleRepository;
-import com.sale.service.SaleService;
+import com.sale.service.SalesService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -16,80 +17,55 @@ import org.springframework.web.client.RestTemplate;
 /**
  * This class represents the controller for Sales management
  */
-@RestController
 @RequestMapping("/sale")
+@RestController
 public class SaleController {
     @Autowired
-    private SaleService saleService;
-
+    private SalesService service;
     @Autowired
-    private RestTemplate restTemplate;
+    private SaleRepository dao;
 
-    private SaleRepository saleRepo;
-
-    @GetMapping("/home")
-    public String home(){
-        return "Home from sale";
-    }
-    /**
-     * Get a list of all Sale records
-     * @return List of Sale records
-     */
     @CrossOrigin("http://localhost:4200")
-    @GetMapping(path="/getAllSales")
-    public List<Sale> getAllSales() {
-        return saleService.getSale();
-//		System.out.println("Get list of all Sales successfully");
-//		return sale;
+    @GetMapping(path = "/getAllSales")
+    public List<Sales> getAllSales() {
+        return service.getSales();
     }
 
-    /**
-     * Insert a new Sales record
-     * @param obj - Sales object to insert
-     * @return the saved sales object
-     */
     @CrossOrigin("http://localhost:4200")
-    @PostMapping(path="/insertSales")
-    public Sale insertSales(@Valid @RequestBody Sale obj) {
+    @PostMapping(path = "/insertSale")
+    public String insertSale(@Valid @RequestBody Sales obj) {
         System.out.println("Received data : " + obj);
-        return saleService.addSales(obj);
-//		return "Record Inserted Successfully";
+        return service.addSale(obj);
     }
 
-    /**
-     * Update an existing Sales record
-     * @param obj - Sales object to update
-     * @return The updated Sales object.
-     * @throws ChangeSetPersister.NotFoundException if the Sales object is not found in the database.
-     */
     @CrossOrigin("http://localhost:4200")
-    @PutMapping(path="/updateSales")
-    public String updateSales(@Valid @RequestBody Sale obj) throws ChangeSetPersister.NotFoundException {
-        Optional<Sale> sale = saleRepo.findById(obj.getId());
+    @PutMapping(path = "/updateSale")
+    public String updateSale(@RequestBody Sales obj) throws Exception {
+        Optional<Sales> sale = dao.findById(obj.getSaleId());
 
         if (!sale.isPresent()) {
             throw new ChangeSetPersister.NotFoundException();
         }
+        Sales updatedObj = sale.get();
+        updatedObj.setDate(obj.getDate());
+        updatedObj.setMedicineName(obj.getMedicineName());
+        updatedObj.setPrice(obj.getPrice());
+        updatedObj.setMedicineQunatity(obj.getMedicineQunatity());
 
-        Sale saleUpd = sale.get();
-        saleUpd.setSaleDate(obj.getSaleDate());
-        saleUpd.setCustomer(obj.getCustomer());
-        saleUpd.setTotalCost(obj.getTotalCost());
-        System.out.println("Received Data in PutMapping :" + obj);
-        return saleService.updateSales(obj);
+        return service.updateSale(obj);
+
     }
-
-    /**
-     * Delete an existing Sales record by its id
-     * @param id - Id of the Sales record to delete
-     * @return String message indicating if the record was deleted successfully or not
-     */
     @CrossOrigin("http://localhost:4200")
-    @DeleteMapping (path="/deleteSales/{id}")
-    public String deleteSales(@PathVariable int id) {
-        System.out.println("Sales record deleted. Given id : " + id);
-        saleService.deleteSales(id);
+    @DeleteMapping (path="/deleteSale/{id}")
+    public String deleteSale(@PathVariable int id) {
+        System.out.println("Sale record deleted. Given id : " + id);
+        service.deleteSale(id);
         return "Record Deleted Successfully";
     }
+    @CrossOrigin("http://localhost:4200")
+    @GetMapping(path="getSaleByDate/{date}")
+    public List<Sales> getSaleByDate(@PathVariable Date date){
+        return service.getSaleByDate(date);
 
+    }
 }
