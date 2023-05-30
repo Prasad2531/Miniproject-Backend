@@ -15,45 +15,45 @@ import java.sql.Date;
 public class Procure {
 
     @Id
-    @Range(min = 1, message= "Medicine Id may not be empty or null")
-    @Positive(message = "Value must be greater than 0")
+//    @Range(min = 1, message= "Medicine Id may not be empty or null")
+//    @Positive(message = "Value must be greater than 0")
     private int medicineId;
 
-    @Column(name = "medicineName")
-    @NotBlank(message = "Medicine name is Mandatory")
-    @Size(min = 3, message = "Medicine name should have at least 3 characters")
-    @Size(max = 20, message = "Medicine name should not have more than 20 characters")
+//    @Column(name = "medicineName")
+//    @NotBlank(message = "Medicine name is Mandatory")
+//    @Size(min = 3, message = "Medicine name should have at least 3 characters")
+//    @Size(max = 20, message = "Medicine name should not have more than 20 characters")
     private String medicineName;
 
-    @Column(name = "description")
-    @NotBlank(message = "Description is Mandatory")
-    @Size(min = 3, message = "Description should have at least 3 characters")
+//    @Column(name = "description")
+//    @NotBlank(message = "Description is Mandatory")
+//    @Size(min = 3, message = "Description should have at least 3 characters")
     private String description;
 
-    @Column(name = "dosage")
-    @NotBlank(message = "Dosage is Mandatory")
-    @Size(min = 3, message = "Dosage should have at least 3 characters")
+//    @Column(name = "dosage")
+//    @NotBlank(message = "Dosage is Mandatory")
+//    @Size(min = 3, message = "Dosage should have at least 3 characters")
     private String dosage;
 
-    @Column(name = "price")
-    @NotNull(message = "Price is Mandatory")
-    @Positive(message = "Value must be greater than 0")
+//    @Column(name = "price")
+//    @NotNull(message = "Price is Mandatory")
+//    @Positive(message = "Value must be greater than 0")
 //    @Digits(integer = 4, fraction = 2, message = "The field must be a number with up to 4 digits before and 2 digits after the decimal point")
     private BigDecimal price;
 
-    @Column(name = "manufactureDate")
-    @NotNull(message = "Manufacture Date is Mandatory")
-    @Past(message = "Manufacture Date must be in the past and date format")
+//    @Column(name = "manufactureDate")
+//    @NotNull(message = "Manufacture Date is Mandatory")
+//    @Past(message = "Manufacture Date must be in the past and date format")
     private Date manufactureDate;
 
-    @Column(name = "expiryDate")
-    @NotNull(message = "Expiry Date is Mandatory")
-    @Future(message = "Expiry Date must be in the future and date format")
+//    @Column(name = "expiryDate")
+//    @NotNull(message = "Expiry Date is Mandatory")
+//    @Future(message = "Expiry Date must be in the future and date format")
     private Date expiryDate;
 
-    @Column(name = "currentStock")
-    @Range(min = 1, message= "Current Stock may not be empty or null")
-    @Positive(message = "Value must be greater than 0")
+//    @Column(name = "currentStock")
+//    @Range(min = 1, message= "Current Stock may not be empty or null")
+//    @Positive(message = "Value must be greater than 0")
     private int currentStock;
 
     public Procure() {

@@ -46,7 +46,7 @@ public class CustomerController {
     }
 
     @CrossOrigin("http://localhost:4200")
-    @PutMapping(path = "/updateCustomer/{customerId}")
+    @PutMapping(path = "/updateCustomer")
     public void updateMedicine(@RequestBody Customer medicine){
         customerService.updateCustomer(medicine);
 

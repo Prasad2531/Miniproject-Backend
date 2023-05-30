@@ -22,9 +22,9 @@ public class ProcureService {
         return procureRepository.findAll();
     }
 
-    public List<Procure> getProcureByName(String name){
-        return procureRepository.getMedicineName(name);
-    }
+//    public List<Procure> getProcureByName(String name){
+//        return procureRepository.getMedicineName(name);
+//    }
 
     public Procure getProcure(int id){
         Optional<Procure> med = procureRepository.findById(id);

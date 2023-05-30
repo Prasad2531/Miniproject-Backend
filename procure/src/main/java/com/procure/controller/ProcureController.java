@@ -23,11 +23,11 @@ public class ProcureController {
         return procureService.getAll();
     }
 
-    @GetMapping(path = "/getMedicineName/{name}")
-    public List<Procure> getMedicines(@PathVariable String name){
-        System.out.println(name);
-        return procureService.getProcureByName(name);
-    }
+//    @GetMapping(path = "/getMedicineName/{name}")
+//    public List<Procure> getMedicines(@PathVariable String name){
+//        System.out.println(name);
+//        return procureService.getProcureByName(name);
+//    }
 
     @GetMapping("/getMedicine/{id}")
     public Procure getMedicine(@PathVariable int id) {
